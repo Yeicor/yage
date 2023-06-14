@@ -24,4 +24,4 @@ jobs:
 
     - uses: "gradle/gradle-build-action@v2"
 
-    - run: "cd yage && ./gradlew jvmTest"
+    - run: "./gradlew jvmTest"
