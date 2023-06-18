@@ -25,3 +25,16 @@ jobs:
     - uses: "gradle/gradle-build-action@v2"
 
     - run: "./gradlew jvmTest"
+
+    # Build for all platforms
+    - run: "./gradlew build -x check -x lintVitalRelease"
+
+    # Publish artifacts to GitHub
+    - name: "Publish artifacts"
+      uses: "actions/upload-artifact@v3"
+      with:
+        name: "artifacts"
+        path: |
+          build/distributions/
+          build/outputs/apk/release/
+          build/libs/
